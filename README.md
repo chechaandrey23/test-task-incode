@@ -13,12 +13,12 @@ Tests:
 
 Install:
 - clone repo
-## Running the local service
+- Running the local service
 1. Open a new bash shell
 2. ```cd server```
 3. ```npm install``` or ```yarn install```
 4. ```npm run start``` or ```yarn start```
-## Run your application
+- Run your application
 1. Open a new bash shell
 2. ```cd client```
 3. ```npm install``` or ```yarn install```
