@@ -25,6 +25,13 @@ export const changeTickers = createSlice({
 		baseDataObject: {}
 	},
 	reducers: {
+		pushConnect(state, action) {
+			
+		},
+		pushDisConnect(state, action) {
+			
+		},
+		
 		setErrorAdded(state, action) {
 			state.errorAdded = action.payload;
 		},
@@ -166,6 +173,7 @@ export const changeTickers = createSlice({
 });
 
 export const {
+	pushConnect, pushDisConnect,
 	setErrorAdded, setErrorTimeout, setErrorShowed, setErrorHided, addFullTickers, removeFullTickers,
 	pushFetch, pushStopFetch, pushSetTimeoutFetch, startFetch, stopFetch, setTimeoutFetch,
 	pushAddTicker, addTicker, pushDeleteTicker, deleteTicker, pushShowTicker, showTicker, pushHideTicker, hideTicker,

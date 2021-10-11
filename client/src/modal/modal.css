@@ -31,6 +31,10 @@
 }
 
 .tickers-controll-modal .body {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	
 	font-size: 14px;
 	border: 1px solid silver;
 	border-radius: 5px;

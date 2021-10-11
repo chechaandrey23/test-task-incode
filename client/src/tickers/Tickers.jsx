@@ -2,8 +2,10 @@ import React, { Component, useRef, useLayoutEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
-import {sagaStartFetch} from '../saga/socket.io.fetch';
+import {sagaStartFetch, sagaStopFetch} from '../saga/socket.io.fetch';
 import {sagaNewOrderTickers} from '../saga/socket.io.ticker';
+
+import {pushFetch} from '../redux/tickers';
 
 import Ticker from './Ticker';
 import TickerFull from './Ticker.Full';
@@ -24,8 +26,18 @@ function Tickers() {
 	
 	console.log(tickers);
 	
+	
+	
+	// clean stories
+	useLayoutEffect(() => {
+		dispatch(pushFetch({value: [], baseValue: []}));
+	}, []);
+	
 	useLayoutEffect(() => {
 		dispatch(sagaStartFetch());
+		return () => {
+			dispatch(sagaStopFetch());
+		}
 	}, []);
 	
 	function handleOnDragEnd(result) {//console.log(result)
@@ -38,6 +50,8 @@ function Tickers() {
 		dispatch(sagaNewOrderTickers(names));
 	}
 	
+	let countDrawTickers = 0;
+	
 	return (<DragDropContext onDragEnd={handleOnDragEnd}>
 		<Droppable droppableId="tickers" direction="horizontal">
 			{(provided) => {
@@ -45,6 +59,8 @@ function Tickers() {
 					{tickers.map((value, index) => {
 						if(value.visible) {
 							let content = null;
+							
+							countDrawTickers++;
 							
 							if(removingTickers.includes(value.ticker)) {
 								content = <TickerLoading key={value.ticker} ticker={value.ticker} removing={true} />
@@ -93,6 +109,7 @@ function Tickers() {
 							</Draggable>;
 						}
 					})}
+					{(countDrawTickers<=0?(<div className="tickers-wait"><div><span>Wait Tickers List</span><span>...</span></div></div>):null)}
 					{provided.placeholder}
 				</div>
 			}}
