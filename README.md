@@ -2,6 +2,7 @@
 
 Implemented:
 - displaying and updating tickers
+- minimum ticker and full ticker using double click
 - adding and removing ticker
 - hide and show ticker
 - change ticker update timeout
