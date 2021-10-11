@@ -1,0 +1,40 @@
+.tickers-controll-modal {
+	padding: 5px;
+	top: 50%;
+	left: 50%;
+	right: auto;
+	bottom: auto;
+	border-radius: 5px;
+	position: absolute;
+	border: 1px solid silver;
+	min-height: 100px;
+	min-width: 200px;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+}
+
+.tickers-controll-modal .head {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	font-size: 14px;
+	align-items: baseline;
+}
+
+.tickers-controll-modal .title {
+	flex-grow: 1;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center;
+}
+
+.tickers-controll-modal .body {
+	font-size: 14px;
+	border: 1px solid silver;
+	border-radius: 5px;
+	margin-top: 10px;
+	flex-grow: 1;
+	padding: 5px;
+}

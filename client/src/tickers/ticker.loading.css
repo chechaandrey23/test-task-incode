@@ -1,0 +1,37 @@
+.ticker-loading {
+	height: 100%;
+	min-height: 45px;
+	min-width: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #eeeeec;
+}
+
+.ticker-loading .ticker-removing {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.ticker-loading .ticker-hiding {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.ticker-loading .ticker-removing-name {
+	font-weight: bold;
+}
+
+.ticker-loading .ticker-hiding-name {
+	font-weight: bold;
+}
+
+.tickers-controll .wait {
+	border: 1px solid silver;
+	border-radius: 3px;
+	padding: 2px 15px;
+	min-height: 18px;
+	background-color: #eeeeec;
+	font-size: 14px;
+	font-weight: bold;
+}

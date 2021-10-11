@@ -1,0 +1,47 @@
+.tickers-controll {
+	display: flex;
+	flex-direction: row;
+	border: 1px solid silver;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.tickers-controll .tickers-stop {
+	margin: 5px;
+	font-size: 14px;
+}
+
+.tickers-controll .tickers-start {
+	margin: 5px;
+	font-size: 14px;
+}
+
+.tickers-controll .tickers-config {
+	margin: 5px;
+	font-size: 14px;
+}
+
+.tickers-controll .tickers-new-ticker {
+	margin: 5px;
+	font-size: 14px;
+}
+
+.tickers-controll .tickers-add-ticker {
+	margin: 5px;
+	font-size: 14px;
+}
+
+.tickers-controll .tickers-new-order {
+	margin: 5px;
+	font-size: 14px;
+}
+
+.tickers-controll .wait {
+	border: 1px solid silver;
+	border-radius: 3px;
+	padding: 2px 7px;
+	min-height: 18px;
+	background-color: #eeeeec;
+	font-size: 14px;
+	font-weight: bold;
+}

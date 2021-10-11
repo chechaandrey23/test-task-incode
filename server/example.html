@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Quote Stream</title>
+		<script type="text/javascript" src="http://localhost:4000/socket.io/socket.io.js"></script>
+	</head>
+	<script type="text/javascript">
+		'use strict';
+		
+		const socket = io.connect('http://localhost:4000');
+		socket.emit('start');
+		
+		socket.on('tickers', function(response) {
+			console.log(response);
+		});
+		
+		socket.on('add-ticker', function(response) {
+			console.log('add', response);
+		});
+		
+		socket.on('remove-ticker', function(response) {
+			console.log('remove', response);
+		});
+		
+		socket.on('show-ticker', function(response) {
+			console.log('show', response);
+		});
+		
+		socket.on('hide-ticker', function(response) {
+			console.log('hide', response);
+		});
+		
+		socket.on('new-order-tickers', function(response) {
+			console.log('new-order', response);
+		});
+		
+		socket.on('set-timeout-tickers', function(response) {
+			console.log('set-timeout', response);
+		});
+		
+		socket.emit('add-ticker', 'YYY');
+		socket.emit('remove-ticker', 'AAPL');
+		socket.emit('show-ticker', 'GOOGL');
+		socket.emit('hide-ticker', 'GOOGL');
+		socket.emit('hide-ticker', 'MSFT');
+		
+		socket.emit('new-order-tickers', ['YYY', 'MSFT', 'AMZN', 'FB', 'TSLA', 'GOOGL']);
+		
+		socket.emit('set-timeout-tickers', 2000);
+	</script>
+	<body>
+		<div id="quotes"></div>
+	</body>
+</html>

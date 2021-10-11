@@ -1,0 +1,90 @@
+.ticker-min {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.ticker-min .ticker-min-body {
+	display: flex;
+	padding:5px;
+	align-items: center;
+}
+
+.ticker-min .ticker-min-body .ticker-neutral {
+	width: 35px;
+	height: 35px;
+	background-image: url('../img/neutral.png');
+	background-size: 35px 35px;
+	background-color: #e6e6fa;
+	border-radius: 5px;
+}
+
+.ticker-min .ticker-min-body .ticker-up {
+	width: 35px;
+	height: 35px;
+	background-image: url('../img/up.png');
+	background-size: 35px 35px;
+	background-color: #c1f6b0;
+	border-radius: 5px;
+}
+
+.ticker-min .ticker-min-body .ticker-down {
+	width: 35px;
+	height: 35px;
+	background-image: url('../img/down.png');
+	background-size: 35px 35px;
+	background-color: #fbb6b6;
+	border-radius: 5px;
+}
+
+.ticker-min .ticker-min-body-name-price {
+	margin-left: 5px;
+}
+
+.ticker-min .ticker-min-body-name-price > .ticker-name {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.ticker-min .ticker-min-body-name-price > .ticker-price {
+	font-size: 14px;
+}
+
+.ticker-min .ticker-min-body-change {
+	margin-left: 10px;
+	text-align: right;
+	font-size: 14px;
+}
+
+.ticker-min .ticker-change-percent {
+	font-size: 14px;
+}
+
+.ticker-min .ticker-change {
+	font-size: 14px;
+}
+
+.ticker-min .ticker-change-percent-neutral {
+	color: blue;
+}
+
+.ticker-min .ticker-change-neutral {
+	color: blue;
+}
+
+.ticker-min .ticker-change-percent-up {
+	color: green;
+}
+
+.ticker-min .ticker-change-up {
+	color: green;
+}
+
+.ticker-min .ticker-change-percent-down {
+	color: red;
+}
+
+.ticker-min .ticker-change-down {
+	color: red;
+}

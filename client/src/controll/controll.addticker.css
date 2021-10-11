@@ -1,0 +1,63 @@
+.tickers-add-ticker {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.tickers-add-ticker .head, .tickers-add-ticker .body {
+	flex-direction: row;
+}
+
+.tickers-add-ticker .tickers-add-ticker-notice {
+	font-size: 16px;
+}
+
+.tickers-add-ticker .tickers-add-ticker-item {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin-top: 3px;
+	margin-bottom: 2px;
+}
+
+.tickers-add-ticker .tickers-add-ticker-label {
+	align-self: flex-end;
+	font-size: 16px;
+}
+
+.tickers-add-ticker .tickers-add-ticker-name {
+	align-self: flex-end;
+	font-size: 18px;
+	font-weight: bold;
+	padding-left: 5px;
+	padding-right: 5px;
+	flex-grow: 1;
+}
+
+.tickers-add-ticker .tickers-add-ticker-submit {
+	align-self: flex-end;
+	font-size: 15px;
+}
+
+.tickers-add-ticker .tickers-add-ticker-name-w {
+	font-size: 18px;
+	font-weight: bold;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.tickers-add-ticker .tickers-add-ticker-wait {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin-top: 3px;
+	margin-bottom: 2px;
+	
+	border: 1px solid silver;
+	border-radius:3px;
+	padding: 1px 15px;
+	min-height: 16px;
+	background-color: #eeeeec;
+}

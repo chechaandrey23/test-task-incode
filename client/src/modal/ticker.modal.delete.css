@@ -1,0 +1,20 @@
+.ticker-controll-delete {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.ticker-controll-delete-quest {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.ticker-controll-delete-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 5px;
+}

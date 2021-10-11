@@ -1,0 +1,62 @@
+.tickers-config {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.tickers-config-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.tickers-config-content input[type='text'] {
+	width: 50px;
+}
+
+.tickers-config-content .tickers-config-labbel {
+	align-self: flex-end;
+	font-size: 16px;
+}
+
+.tickers-config-content .tickers-config-3 {
+	align-self: flex-end;
+	font-size: 16px;
+	font-weight: bold;
+	padding-right: 5px;
+}
+
+.tickers-config-content .tickers-config-text {
+	align-self: flex-end;
+	font-size: 15px;
+	padding-left: 5px;
+	padding-top: 3px;
+}
+
+.tickers-config-content .tickers-config-submit {
+	align-self: flex-end;
+	font-size: 15px;
+}
+
+.tickers-config-wait {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-size: 16px;
+}
+
+.tickers-config .wait {
+	border: 1px solid silver; 
+	border-radius: 3px; 
+	padding: 2px;
+}
+
+.tickers-config-error {
+	color: red;
+	font-size: 17px;
+	font-weight: bold;
+	background-color: #fbb6b6;
+	border-radius: 5px;
+	margin-bottom: 7px;
+	padding: 10px;
+}

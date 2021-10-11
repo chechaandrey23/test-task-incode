@@ -1,0 +1,112 @@
+.ticker-max {
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+}
+
+.ticker-max .ticker-max-controll {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.ticker-max .ticker-max-controll-img {
+	flex-basis: 100%;
+}
+
+.ticker-max .ticker-max-controll-img .ticker-neutral {
+	width: 25px;
+	height: 25px;
+	background-image: url('../img/neutral.png');
+	background-size: 25px 25px;
+	background-color: #e6e6fa;
+	border-radius: 5px;
+}
+
+.ticker-max .ticker-max-controll-img .ticker-up {
+	width: 25px;
+	height: 25px;
+	background-image: url('../img/up.png');
+	background-size: 25px 25px;
+	background-color: #c1f6b0;
+	border-radius: 5px;
+}
+
+.ticker-max .ticker-max-controll-img .ticker-down {
+	width: 25px;
+	height: 25px;
+	background-image: url('../img/down.png');
+	background-size: 25px 25px;
+	background-color: #fbb6b6;
+	border-radius: 5px;
+}
+
+.ticker-max .ticker-max-controll-min {
+	display: flex;
+	font-size: 14px;
+	margin-right: 5px;
+}
+
+.ticker-max .ticker-max-controll-visible {
+	display: flex;
+	font-size: 14px;
+	margin-right: 5px;
+}
+
+.ticker-max .ticker-max-controll-remove {
+	display: flex;
+	font-size: 14px;
+}
+
+.ticker-max .ticker-max-body {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+
+.ticker-max .ticker-max-body-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.ticker-max .ticker-max-body-column {
+	width: 100px;
+	padding-right: 10px;
+	font-size: 14px;
+	border-bottom: 1px solid silver;
+}
+
+.ticker-max .ticker-max-body-column-3 {
+	width: 180px;
+	text-align: right;
+	font-size: 14px;
+	border-bottom: 1px solid silver;
+}
+
+.ticker-max .ticker-max-body .ticker-max-name {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.ticker-max .ticker-max-body-column-3-neutral {
+	color: blue;
+}
+
+.ticker-max .ticker-max-body-column-3-neutral {
+	color: blue;
+}
+
+.ticker-max .ticker-max-body-column-3-up {
+	color: green;
+}
+
+.ticker-max .ticker-max-body-column-3-up {
+	color: green;
+}
+
+.ticker-max .ticker-max-body-column-3-down {
+	color: red;
+}
+
+.ticker-max .ticker-max-body-column-3-down {
+	color: red;
+}
