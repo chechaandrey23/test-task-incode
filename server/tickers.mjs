@@ -76,17 +76,17 @@ class Tickers {
 	
 	bindFetch(socket) {
 		socket.on('start', () => {
-			if(this.#isStart) return;
+			if(this.#isStart) return;console.log('start');
 			this.#isStart = true;
 			this._trackTickers(socket);
 		});
 	}
 	
 	unBindFetch(socket) {
-		socket.on('stop', () => {
+		socket.on('stop', () => {console.log('stop')
 			this.#isStart = false;
 			//socket.off('start', this.#fn);
-			socket.off('disconnect', this.#discFn);
+			if(this.#discFn) socket.off('disconnect', this.#discFn);
 			clearTimeout(this.#timer);
 			setTimeout(() => {socket.emit('tickers-stop', true);}, 1000);
 		});
@@ -208,12 +208,20 @@ class Tickers {
 	bindSetTimeout(socket) {
 		socket.on('set-timeout-tickers', (timeout) => {
 			try {
+				let withoutTickers = false;
+				if(timeout && timeout.without && timeout.timeout) {
+					withoutTickers = true;
+					timeout = timeout.timeout;
+				}
+				
 				this._configTickers({timeout});
 				setTimeout(() => {
 					socket.emit('set-timeout-tickers', true);
-					let quotes = this._getQuotes();
-					socket.emit('tickers', {value: quotes, baseValue: null});
-					this._timeout(socket);
+					if(!withoutTickers) {
+						let quotes = this._getQuotes();
+						socket.emit('tickers', {value: quotes, baseValue: null});
+						this._timeout(socket);
+					}
 				}, 1000);
 			} catch(e) {
 				if(e instanceof TickersError) {

@@ -56,7 +56,9 @@ export const changeTickers = createSlice({
 			state.subscribeFetch = true;
 			state.startingFetch = false;
 			state.dataArray = action.payload.value;
-			if(action.payload.baseValue) state.baseDataObject = _toObject(action.payload.baseValue);
+			if(action.payload.baseValue) {
+				state.baseDataObject = _toObject(action.payload.baseValue);
+			}
 		},
 		pushStopFetch(state, action) {
 			if(action.payload && action.payload.error) {

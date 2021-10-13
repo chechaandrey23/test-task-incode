@@ -1,4 +1,4 @@
-import React, { Component, useRef, useEffect, useState } from 'react';
+import React, { Component, useRef, useLayoutEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './ticker.max.css';
@@ -31,53 +31,66 @@ function TickerFull(props) {
 	if(changeChange === 1) tickerMaxChangeClass.push('ticker-max-body-column-3-up');
 	if(changeChange === -1) tickerMaxChangeClass.push('ticker-max-body-column-3-down');
 	
-	return (<div className="ticker-max">
+	// fix
+	useLayoutEffect(() => {
+		return () => {
+			dispatch(removeFullTickers(props.ticker));
+		}
+	}, []);
+	
+	return (<div id={"ticker-max-"+props.ticker} className="ticker-max">
 		<div className="ticker-max-controll">
 			<div className="ticker-max-controll-img">
 				<div className={(changePrice===0?'ticker-neutral':(changePrice===1?'ticker-up':'ticker-down'))}></div>
 			</div>
-			<div className="ticker-max-controll-min"><a href="#" className="myButton" onClick={(e) => {dispatch(removeFullTickers(props.ticker))}}>min</a></div>
-			<div className="ticker-max-controll-visible"><a href="#" className="myButton" onClick={(e) => {dispatch(sagaHideTicker(props.ticker));}}>hide</a></div>
-			<div className="ticker-max-controll-remove"><a href="#" className="myButton" onClick={(e) => {setIsOpen(true)}}>del</a></div>
+			<div className="ticker-max-controll-min">
+				<a id={"ticker-max-controll-min-"+props.ticker} href="#" className="myButton" onClick={(e) => {dispatch(removeFullTickers(props.ticker))}}>min</a>
+			</div>
+			<div className="ticker-max-controll-visible">
+				<a id={"ticker-max-controll-hide-"+props.ticker} href="#" className="myButton" onClick={(e) => {dispatch(sagaHideTicker(props.ticker));}}>hide</a>
+			</div>
+			<div className="ticker-max-controll-remove">
+				<a id={"ticker-max-controll-remove-"+props.ticker} href="#" className="myButton" onClick={(e) => {setIsOpen(true)}}>del</a>
+			</div>
 		</div>
 		<div className="ticker-max-body">
 			<div className="ticker-max-body-row">
 				<div className="ticker-max-body-column"><span>name</span></div>
-				<div className="ticker-max-body-column-3 ticker-max-name"><span>{props.ticker}</span></div>
+				<div id={"ticker-max-name-"+props.ticker} className="ticker-max-body-column-3 ticker-max-name"><span>{props.ticker}</span></div>
 			</div>
 			<div className="ticker-max-body-row">
 				<div className="ticker-max-body-column"><span>exchange</span></div>
-				<div className="ticker-max-body-column-3"><span>{props.exchange}</span></div>
+				<div id={"ticker-max-exchange-"+props.ticker} className="ticker-max-body-column-3"><span>{props.exchange}</span></div>
 			</div>
 			<div className="ticker-max-body-row">
 				<div className="ticker-max-body-column"><span>price</span></div>
-				<div className="ticker-max-body-column-3"><span>{props.price}</span></div>
+				<div id={"ticker-max-price-"+props.ticker} className="ticker-max-body-column-3"><span>{props.price}</span></div>
 			</div>
 			<div className="ticker-max-body-row">
 				<div className="ticker-max-body-column"><span>change</span></div>
-				<div className={tickerMaxChangeClass.join(' ')}>
+				<div id={"ticker-max-change-"+props.ticker} className={tickerMaxChangeClass.join(' ')}>
 					{(changeChange===0?'':(changeChange===1?<span>+</span>:<span>-</span>))}
 					<span>{props.change}</span>
 				</div>
 			</div>
 			<div className="ticker-max-body-row">
 				<div className="ticker-max-body-column"><span>change_percent</span></div>
-				<div className={tickerMaxChangePercentClass.join(' ')}>
+				<div id={"ticker-max-change_percent-"+props.ticker} className={tickerMaxChangePercentClass.join(' ')}>
 					{(changeChangePercent===0?'':(changeChangePercent===1?<span>+</span>:<span>-</span>))}
 					<span>{props.change_percent}</span><span>%</span>
 				</div>
 			</div>
 			<div className="ticker-max-body-row">
 				<div className="ticker-max-body-column"><span>dividend</span></div>
-				<div className="ticker-max-body-column-3"><span>{props.dividend}</span></div>
+				<div id={"ticker-max-dividend-"+props.ticker} className="ticker-max-body-column-3"><span>{props.dividend}</span></div>
 			</div>
 			<div className="ticker-max-body-row">
 				<div className="ticker-max-body-column"><span>yield</span></div>
-				<div className="ticker-max-body-column-3"><span>{props.yield}</span></div>
+				<div id={"ticker-max-yield-"+props.ticker} className="ticker-max-body-column-3"><span>{props.yield}</span></div>
 			</div>
 			<div className="ticker-max-body-row">
 				<div className="ticker-max-body-column"><span>last_trade_time</span></div>
-				<div className="ticker-max-body-column-3"><span>{props.last_trade_time}</span></div>
+				<div id={"ticker-max-last_trade_time-"+props.ticker} className="ticker-max-body-column-3"><span>{props.last_trade_time}</span></div>
 			</div>
 		</div>
 		<Modal  isOpen={modalIsOpen}
@@ -86,14 +99,14 @@ function TickerFull(props) {
 				className="tickers-controll-modal">
 			<div className="head">
 				<div className="title">Create Ticker</div>
-				<div><a href="#" className="myButtonClose" onClick={(e) => {setIsOpen(false);}}>X</a></div>
+				<div><a id={"ticker-controll-delete-modal-close-"+props.ticker} href="#" className="myButtonClose" onClick={(e) => {setIsOpen(false);}}>X</a></div>
 			</div>
 			<div className="body">
 				<div className="ticker-controll-delete">
 					<div className="ticker-controll-delete-quest"><span>Are you sure you want to remove ticker "{props.ticker}"?</span></div>
 					<div className="ticker-controll-delete-buttons">
 						<div><a href="#" className="myButton" onClick={() => {setIsOpen(false);}}>No</a></div>
-						<div><a href="#" className="myButton" onClick={() => {
+						<div><a id={"ticker-controll-delete-"+props.ticker} href="#" className="myButton" onClick={() => {
 							dispatch(sagaDeleteTicker(props.ticker));
 							setIsOpen(false);
 						}}>Yes</a></div>

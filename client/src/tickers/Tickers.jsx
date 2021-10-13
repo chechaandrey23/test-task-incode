@@ -24,13 +24,15 @@ function Tickers() {
 	
 	const dispatch = useDispatch();
 	
-	console.log(tickers);
+	//console.log(tickers);
 	
 	
 	
 	// clean stories
 	useLayoutEffect(() => {
-		dispatch(pushFetch({value: [], baseValue: []}));
+		return () => {
+			//dispatch(pushFetch({value: [], baseValue: []}));
+		}
 	}, []);
 	
 	useLayoutEffect(() => {
@@ -104,12 +106,12 @@ function Tickers() {
 							
 							return <Draggable key={value.ticker} draggableId={value.ticker} index={index}>
 								{(provided) => {
-									return <div className="tickers-item" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>{content}</div>
+									return <div id={"ticker-real-item-"+index} className="tickers-item" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>{content}</div>
 								}}
 							</Draggable>;
 						}
 					})}
-					{(countDrawTickers<=0?(<div className="tickers-wait"><div><span>Wait Tickers List</span><span>...</span></div></div>):null)}
+					{(countDrawTickers<=0?(<div id="tickers-wait" className="tickers-wait"><div><span>Wait Tickers List</span><span>...</span></div></div>):null)}
 					{provided.placeholder}
 				</div>
 			}}

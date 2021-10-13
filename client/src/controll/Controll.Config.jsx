@@ -36,23 +36,23 @@ function ControllConfig(props) {
 	if(settingTimeout === true) {
 		content = <div className="wait"><span>wait</span><span>...</span></div>
 		if(modalIsOpen) {
-			modalContent = <div className="tickers-config-wait"><div><span>wait</span><span>...</span></div></div>
+			modalContent = <div id={"tickers-config-wait"} className="tickers-config-wait"><div><span>wait</span><span>...</span></div></div>
 		}
 	} else {
-		content = <div className="button"><a href="#" className="myButton" onClick={(e) => {setIsOpen(true);}}>config</a></div>
+		content = <div className="button"><a id={"tickers-config-open"} href="#" className="myButton" onClick={(e) => {setIsOpen(true);}}>config</a></div>
 		if(modalIsOpen) {
-			modalContent =  <div className="tickers-config-content">
+			modalContent =  <div id={"tickers-config-content"} className="tickers-config-content">
 								<div className="tickers-config-labbel"><span>set timeout</span></div>
-								<div className="tickers-config-text"><input type="text" ref={refTimeout} /></div>
+								<div className="tickers-config-text"><input id={"tickers-config-timeout"} type="text" ref={refTimeout} /></div>
 								<div className="tickers-config-3"><span>ms.</span></div>
 								<div className="tickers-config-submit">
-									<a href="#" className="myButton" onClick={(e) => {
+									<a id={"tickers-config-submit"} href="#" className="myButton" onClick={(e) => {
 										dispatch(sagaSetTimeoutFetch(refTimeout.current.value));
 									}}>install</a>
 								</div>
 							</div>
 			if(errorTimeout) {
-				msgError = <div className="tickers-config-error"><div>Failed to set the timeout, please try again</div></div>
+				msgError = <div id={"tickers-config-error"} className="tickers-config-error"><div>Failed to set the timeout, please try again</div></div>
 			}
 		}
 	}
@@ -66,7 +66,7 @@ function ControllConfig(props) {
 				className="tickers-controll-modal">
 			<div className="head">
 				<div className="title">Configs timeout</div>
-				<div><a href="#" className="myButtonClose" onClick={(e) => {setIsOpen(false);}}>X</a></div>
+				<div><a id={"tickers-config-close"} href="#" className="myButtonClose" onClick={(e) => {setIsOpen(false);}}>X</a></div>
 			</div>
 			<div className="body">{msgError}{modalContent}</div>
 		</Modal>

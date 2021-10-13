@@ -28,20 +28,20 @@ function Ticker(props) {
 	if(changeChange === 1) tickerChangeClass.push('ticker-change-up');
 	if(changeChange === -1) tickerChangeClass.push('ticker-change-down');
 	
-	return (<div className="ticker-min" onDoubleClick={(e) => {dispatch(addFullTickers(props.ticker))}}>
+	return (<div id={"ticker-min-"+props.ticker} className="ticker-min" onDoubleClick={(e) => {dispatch(addFullTickers(props.ticker))}}>
 		<div className="ticker-min-body">
 			<div className="ticker-min-body-img">
 				<div className={(changePrice===0?'ticker-neutral':(changePrice===1?'ticker-up':'ticker-down'))}></div>
 			</div>
 			<div className="ticker-min-body-name-price">
-				<div className="ticker-name"><span>{props.ticker}</span></div>
-				<div className="ticker-price"><span>{props.price}</span></div>
+				<div id={"ticker-min-name-"+props.ticker} className="ticker-name"><span>{props.ticker}</span></div>
+				<div id={"ticker-min-price-"+props.ticker} className="ticker-price"><span>{props.price}</span></div>
 			</div>
 			<div className="ticker-min-body-change">
-				<div className={tickerChangePercentClass.join(' ')}>
+				<div id={"ticker-min-change_percent-"+props.ticker} className={tickerChangePercentClass.join(' ')}>
 					{(changeChangePercent===0?'':(changeChangePercent===1?<span>+</span>:<span>-</span>))}<span>{props.change_percent}</span><span>%</span>
 				</div>
-				<div className={tickerChangeClass.join(' ')}>
+				<div id={"ticker-min-change-"+props.ticker} className={tickerChangeClass.join(' ')}>
 					{(changeChange===0?'':(changeChange===1?<span>+</span>:<span>-</span>))}<span>{props.change}</span>
 				</div>
 			</div>

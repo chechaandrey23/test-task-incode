@@ -10,7 +10,7 @@ function TickerLoading(props) {
 		content = <div className="ticker-hiding"><span>hiding </span><span className="ticker-hiding-name">{props.ticker}</span><span>...</span></div>
 	}
 	
-	return (<div className="ticker-loading">{content}</div>)
+	return (<div id={"ticker-loading-"+props.ticker} className="ticker-loading">{content}</div>)
 }
 
 export default TickerLoading;

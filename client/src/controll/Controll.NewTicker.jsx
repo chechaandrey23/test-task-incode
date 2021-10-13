@@ -36,23 +36,23 @@ function ControllNewTicker(props) {
 	if(addingTicker.length > 0) {
 		content = <div className="wait"><span>wait</span><span>...</span></div>
 		if(modalIsOpen) {
-			modalContent = <div className="tickers-new-ticker-wait"><div><span>wait</span><span>...</span></div></div>
+			modalContent = <div id={"tickers-new-ticker-wait"} className="tickers-new-ticker-wait"><div><span>wait</span><span>...</span></div></div>
 		}
 	} else {
-		content = <div className="button"><a href="#" className="myButton" onClick={(e) => {setIsOpen(true);}}>new ticker</a></div>
+		content = <div className="button"><a id={"tickers-new-ticker-open"} href="#" className="myButton" onClick={(e) => {setIsOpen(true);}}>new ticker</a></div>
 		if(modalIsOpen) {
-			modalContent =  <div className="tickers-new-ticker-content">
+			modalContent =  <div id={"tickers-new-ticker-content"} className="tickers-new-ticker-content">
 								<div className="tickers-new-ticker-labbel"><span>Ticker name</span></div>
-								<div className="tickers-new-ticker-text"><input type="text" ref={refNewTicker} /></div>
+								<div className="tickers-new-ticker-text"><input id={"tickers-new-ticker-newname"} type="text" ref={refNewTicker} /></div>
 								<div className="tickers-new-ticker-submit">
-									<a href="#" className="myButton" onClick={(e) => {
+									<a id={"tickers-new-ticker-submit"} href="#" className="myButton" onClick={(e) => {
 										dispatch(sagaAddTicker(refNewTicker.current.value));
 									}}>create</a>
 								</div>
 							</div>
 			
 			if(errorAdded || errorAdded === '') {
-				msgError = <div className="tickers-new-ticker-error"><div>Unable to add ticker named "{errorAdded}"!!!</div></div>
+				msgError = <div id={"tickers-new-ticker-error"} className="tickers-new-ticker-error"><div>Unable to add ticker named "{errorAdded}"!!!</div></div>
 			}
 		}
 	}
@@ -66,7 +66,7 @@ function ControllNewTicker(props) {
 				className="tickers-controll-modal">
 			<div className="head">
 				<div className="title">Create Ticker</div>
-				<div><a href="#" className="myButtonClose" onClick={(e) => {setIsOpen(false);}}>X</a></div>
+				<div><a id={"tickers-new-ticker-close"} href="#" className="myButtonClose" onClick={(e) => {setIsOpen(false);}}>X</a></div>
 			</div>
 			<div className="body">{msgError}{modalContent}</div>
 		</Modal>

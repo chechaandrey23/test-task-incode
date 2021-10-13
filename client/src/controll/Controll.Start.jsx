@@ -19,7 +19,7 @@ function ControllStart(props) {
 	} else {
 		let buttonClasses = ['myButton'];
 		if(statusSubscribe) buttonClasses.push('disabled');
-		content = <div className="button"><a href="#" className={buttonClasses.join(' ')} onClick={(e) => {
+		content = <div className="button"><a id={"tickers-start-button"} href="#" className={buttonClasses.join(' ')} onClick={(e) => {
 			if(statusSubscribe === true) return;
 			dispatch(sagaStartFetch());
 		}}>start</a></div>

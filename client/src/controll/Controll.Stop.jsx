@@ -19,7 +19,7 @@ function ControllStop(props) {
 	} else {
 		let buttonClasses = ['myButton'];
 		if(!statusSubscribe) buttonClasses.push('disabled');
-		content = <div className="button"><a href="#" className={buttonClasses.join(' ')} onClick={(e) => {
+		content = <div className="button"><a id={"tickers-stop-button"} href="#" className={buttonClasses.join(' ')} onClick={(e) => {
 			if(statusSubscribe === false) return;
 			dispatch(sagaStopFetch());
 		}}>stop</a></div>
